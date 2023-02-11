@@ -1,0 +1,78 @@
+{
+    "root": true,
+    "ignorePatterns": [
+        "projects/**/*",
+        "src/schematics/**",
+        "src/polyfills.ts",
+        "src/main.ts",
+        "src/test.ts"
+    ],
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "parserOptions": {
+                "project": ["tsconfig.json"],
+                "createDefaultProgram": true
+            },
+            "extends": [
+                "plugin:@angular-eslint/recommended",
+                "plugin:@angular-eslint/template/process-inline-templates",
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@typescript-eslint/recommended-requiring-type-checking",
+                "prettier"
+            ],
+            "rules": {
+                "@angular-eslint/directive-selector": [
+                    "error",
+                    {
+                        "type": "attribute",
+                        "prefix": "app",
+                        "style": "camelCase"
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "error",
+                    {
+                        "type": "element",
+                        "prefix": "app",
+                        "style": "kebab-case"
+                    }
+                ],
+                "@typescript-eslint/no-unsafe-member-access": "error",
+                "@typescript-eslint/no-use-before-define": "error",
+                "@typescript-eslint/no-unsafe-assignment": "off",
+                "@typescript-eslint/no-floating-promises": "off",
+                "@typescript-eslint/no-explicit-any": "error",
+                "@typescript-eslint/no-unused-vars": "error",
+                "@typescript-eslint/no-this-alias": "error",
+                "@typescript-eslint/indent": "error",
+                "prefer-arrow-callback": "warn",
+                "prefer-const": "warn",
+                "default-case": "warn",
+                "no-unneeded-ternary": "warn",
+                "no-return-assign": "error",
+                "no-nested-ternary": "warn",
+                "no-const-assign": "error",
+                "no-fallthrough": "warn",
+                "no-console": "error",
+                "radix": "warn"
+            }
+        },
+        {
+            "files": ["*.html"],
+            "extends": [
+                "plugin:@angular-eslint/template/recommended",
+                "prettier"
+            ],
+            "rules": {
+                "@angular-eslint/template/accessibility-alt-text": "error",
+                "@angular-eslint/template/accessibility-elements-content": "warn",
+                "@angular-eslint/template/accessibility-label-for": "warn",
+                "@angular-eslint/template/accessibility-label-has-associated-control": "warn",
+                "@angular-eslint/template/accessibility-table-scope": "warn",
+                "@angular-eslint/template/accessibility-valid-aria": "warn"
+            }
+        }
+    ]
+}
