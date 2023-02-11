@@ -43,7 +43,7 @@ export class SearchStateService {
                 const searchResponse = response as SearchResponse;
                 searchResponse?.items?.filter(
                     (item) =>
-                        item?.login?.toLowerCase() === query?.toLowerCase() &&
+                        item?.login?.toLowerCase() === query &&
                         this.updateSearchHistory(query, item)
                 );
             })
