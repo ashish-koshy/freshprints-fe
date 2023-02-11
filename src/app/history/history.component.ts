@@ -22,8 +22,6 @@ export class HistoryComponent implements OnInit, OnDestroy {
                 tap((data) => {
                     this.searchHistory = data;
                     this.searchKeys = Array.from(data?.keys());
-                    // eslint-disable-next-line no-console
-                    console.log(this.searchHistory, this.searchKeys);
                 })
             )
             .subscribe();
