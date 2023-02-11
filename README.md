@@ -1,5 +1,7 @@
 # FreshprintsFe
 
+Stackblitz https://stackblitz.com/edit/angular-hj94l9
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
 
 ## Development server
