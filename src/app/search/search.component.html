@@ -1,2 +1,39 @@
-Search :
-<app-search-result></app-search-result>
+<div class="card my-5 p-2 text-center">
+    <form [formGroup]="searchForm">
+        <div class="d-flex flex-column justify-content-center my-5">
+            <div class="form-floating mb-3">
+                <input
+                    type="text"
+                    id="floatingInput"
+                    class="form-control"
+                    formControlName="name"
+                />
+                <label for="floatingInput">Search GitHub Users</label>
+            </div>
+            <button
+                type="button"
+                class="btn btn-primary btn-md"
+                (click)="search()"
+            >
+                Search
+            </button>
+        </div>
+    </form>
+    <div *ngIf="currentSearchSatus === SearchStatus.searching">
+        <div class="spinner-grow" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="currentSearchSatus === SearchStatus.complete">
+        <div class="my-3" *ngIf="searchResults">
+            <div *ngIf="searchResults.length">
+                <div *ngFor="let result of searchResults">
+                    <app-search-result [data]="result"></app-search-result>
+                </div>
+            </div>
+            <div *ngIf="!searchResults.length">
+                <p>No results could be found...</p>
+            </div>
+        </div>
+    </div>
+</div>

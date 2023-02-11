@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchResultModule } from '../search-result/search-result.module';
 
@@ -10,7 +11,7 @@ describe('HistoryComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [HistoryComponent],
-            imports: [SearchResultModule],
+            imports: [SearchResultModule, HttpClientModule],
         }).compileComponents();
 
         fixture = TestBed.createComponent(HistoryComponent);
