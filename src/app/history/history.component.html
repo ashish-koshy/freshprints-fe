@@ -1,3 +1,29 @@
-Search history :
-<div *ngFor="let key of searchKeys">{{ key }}</div>
-<app-search-result></app-search-result>
+<div class="card my-5 p-2">
+    <div *ngIf="!searchKeys.length">
+        <p>Search history is empty...</p>
+    </div>
+    <div *ngIf="searchKeys.length">
+        <p>Search history :</p>
+        <hr />
+        <div *ngFor="let key of searchKeys">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col">
+                        <pre>Search term:</pre>
+                        <h5>{{ key }}</h5>
+                    </div>
+                    <div class="col">
+                        <app-search-result
+                            *ngIf="searchHistory?.get(key) as result"
+                            [data]="result"
+                        ></app-search-result>
+                        <p *ngIf="!searchHistory?.get(key)">
+                            No results found...
+                        </p>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>

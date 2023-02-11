@@ -1,6 +1,8 @@
-<div class="card my-5 p-2 text-center">
+<div class="card my-5 p-2">
     <form [formGroup]="searchForm">
-        <div class="d-flex flex-column justify-content-center my-5">
+        <div
+            class="d-flex align-items-center justify-content-center flex-column my-5"
+        >
             <div class="form-floating mb-3">
                 <input
                     type="text"
@@ -19,12 +21,18 @@
             </button>
         </div>
     </form>
-    <div *ngIf="currentSearchSatus === SearchStatus.searching">
+    <div
+        *ngIf="currentSearchSatus === SearchStatus.searching"
+        class="d-flex justify-content-center"
+    >
         <div class="spinner-grow" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <div *ngIf="currentSearchSatus === SearchStatus.complete">
+    <div
+        *ngIf="currentSearchSatus === SearchStatus.complete"
+        class="d-flex justify-content-center"
+    >
         <div class="my-3" *ngIf="searchResults">
             <div *ngIf="searchResults.length">
                 <div *ngFor="let result of searchResults">
