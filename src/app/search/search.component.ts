@@ -30,6 +30,8 @@ export class SearchComponent implements OnDestroy {
     public searchResults: SearchResult[] = [];
     public currentSearchSatus: SearchStatus = SearchStatus.initial;
 
+    public totalCount: number | undefined = undefined;
+
     private searchSubscription!: Subscription;
     constructor(
         private searchState: SearchStateService,
@@ -45,6 +47,7 @@ export class SearchComponent implements OnDestroy {
         if (searchData.name) {
             this.currentSearchSatus = SearchStatus.searching;
             this.searchResults = [];
+            this.totalCount = undefined;
             this.searchSubscription?.unsubscribe();
             this.searchSubscription = this.searchState
                 .getUsers(searchData.name)
@@ -52,6 +55,7 @@ export class SearchComponent implements OnDestroy {
                 .subscribe((response) => {
                     const data = response as SearchResponse;
                     this.searchResults = data?.items || [];
+                    this.totalCount = data?.total_count || undefined;
                     this.currentSearchSatus = SearchStatus.complete;
                 });
         }

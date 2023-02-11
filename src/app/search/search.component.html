@@ -35,6 +35,9 @@
     >
         <div class="my-3" *ngIf="searchResults">
             <div *ngIf="searchResults.length">
+                <p *ngIf="totalCount !== undefined">
+                    {{ totalCount }} matching record(s) found...
+                </p>
                 <div *ngFor="let result of searchResults">
                     <app-search-result [data]="result"></app-search-result>
                 </div>
